@@ -1,4 +1,4 @@
-```tsx
+
 import { articles } from '@/lib/content';
 import { ArticleCard } from '@/components/article-card';
 import Link from 'next/link';
@@ -10,15 +10,13 @@ type BlogPageProps = {
 export default async function Blog({ searchParams }: BlogPageProps) {
   const { category } = await searchParams;
 
-  const cat = category;
-
-  const list = cat
+  const list = category
     ? articles.filter(
         (a) =>
           a.category
             .toLowerCase()
             .replaceAll(' & ', '-')
-            .replaceAll(' ', '-') === cat
+            .replaceAll(' ', '-') === category
       )
     : articles;
 
@@ -44,23 +42,23 @@ export default async function Blog({ searchParams }: BlogPageProps) {
 
       <div className="flex flex-wrap gap-2 mt-10">
         {['All', 'AI & Tech', 'Ecommerce', 'Productivity', 'Web & Tech'].map(
-          (x) => (
-            <Link
-              key={x}
-              href={
-                x === 'All'
-                  ? '/blog'
-                  : `/blog?category=${x
-                      .toLowerCase()
-                      .replaceAll(' & ', '-')
-                      .replaceAll(' ', '-')}`
-              }
-              className="px-4 py-2 rounded-full border text-sm"
-              style={{ borderColor: 'var(--line)' }}
-            >
-              {x}
-            </Link>
-          )
+          (x) => {
+            const categorySlug = x
+              .toLowerCase()
+              .replaceAll(' & ', '-')
+              .replaceAll(' ', '-');
+
+            return (
+              <Link
+                key={x}
+                href={x === 'All' ? '/blog' : `/blog?category=${categorySlug}`}
+                className="px-4 py-2 rounded-full border text-sm"
+                style={{ borderColor: 'var(--line)' }}
+              >
+                {x}
+              </Link>
+            );
+          }
         )}
       </div>
 
@@ -72,4 +70,3 @@ export default async function Blog({ searchParams }: BlogPageProps) {
     </main>
   );
 }
-```
