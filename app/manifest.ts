@@ -1,0 +1,1 @@
+import type {MetadataRoute} from 'next';export default function manifest():MetadataRoute.Manifest{return{name:'NextByte Journal',short_name:'NextByte',description:'Practical ideas for the modern digital world.',start_url:'/',display:'standalone',background_color:'#f7f8fa',theme_color:'#5b4bdb',icons:[{src:'/icon.svg',sizes:'any',type:'image/svg+xml'}]}}

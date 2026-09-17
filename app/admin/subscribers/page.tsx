@@ -1,0 +1,1 @@
+export default function Page(){return <div><h1 className="text-4xl font-black">Subscribers</h1><div className="card p-7 mt-8"><p className="muted">Subscribers management is represented in the production data model. Connect these views to Prisma CRUD actions for your deployment.</p></div></div>}

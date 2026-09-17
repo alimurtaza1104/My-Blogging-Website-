@@ -1,0 +1,1 @@
+export default function Page(){return <div><h1 className="text-4xl font-black">Seo</h1><div className="card p-7 mt-8"><p className="muted">Seo management is represented in the production data model. Connect these views to Prisma CRUD actions for your deployment.</p></div></div>}

@@ -1,0 +1,1 @@
+'use client';import {useEffect} from 'react';export default function Logout(){useEffect(()=>{fetch('/api/admin/logout',{method:'POST'}).then(()=>location.href='/admin/login')},[]);return <main className="p-10">Signing out…</main>}
