@@ -1,3 +1,4 @@
+
 import { notFound } from 'next/navigation';
 import { articles, getArticle } from '@/lib/content';
 import Link from 'next/link';
